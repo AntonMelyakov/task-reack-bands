@@ -29,19 +29,26 @@ function Albums() {
 
     const response = await fetch(
       `https://itunes.apple.com/search?term=` + searchBand + `&entity=song`
-    );
-    const newData = await response.json();
-    if (newData.resultCount) {
-      var songs = newData.results;
-      songs.sort(function (a, b) {
-        return a.collectionName.localeCompare(b.collectionName);
-      });
+    ).catch((error) => {
+      console.log(error);
+      return;
+    });
+    if (response) {
+      const newData = await response.json();
+      if (newData.resultCount) {
+        var songs = newData.results;
+        songs.sort(function (a, b) {
+          return a.collectionName.localeCompare(b.collectionName);
+        });
 
-      var albums = songs.map((song) => song.collectionName);
-      albums = albums.filter((album, index) => albums.indexOf(album) === index);
-      albums = albums.slice(0, 5);
+        var albums = songs.map((song) => song.collectionName);
+        albums = albums.filter(
+          (album, index) => albums.indexOf(album) === index
+        );
+        albums = albums.slice(0, 5);
 
-      setAlbumsArray([...albums]);
+        setAlbumsArray([...albums]);
+      }
     }
   };
 
