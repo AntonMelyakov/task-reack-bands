@@ -1,0 +1,36 @@
+.albums {
+    display: flex;
+    justify-content: center;
+
+    .albums-container {
+        background-color: ghostwhite;
+        padding: 20px;
+        h1{
+            margin-bottom: 25px;
+        }
+        form {
+            margin-bottom: 20px;
+            label {
+                margin-right: 5px;
+            }
+            button {
+                margin-left: 5px;
+            }
+        }
+        .albums-list{
+            padding: 20px;
+            border: 2px solid black;
+            .album-item {
+                width: 280px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                background-color: floralwhite;
+                padding: 10px;
+                border: 2px solid black;
+                border-radius: 20px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
