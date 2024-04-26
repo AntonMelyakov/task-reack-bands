@@ -31,7 +31,6 @@ function Albums() {
       `https://itunes.apple.com/search?term=` + searchBand + `&entity=song`
     ).catch((error) => {
       console.log(error);
-      return;
     });
     if (response) {
       const newData = await response.json();
